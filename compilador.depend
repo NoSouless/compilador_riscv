@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1764973204 source:c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador\files\main.cpp
+	<stdio.h>
+	<iostream>
+	"cpu.h"
+	"ram.h"
+	"barramento.h"
+	<stdint.h>
+	<iostream>
+	<iomanip>
+	<cstdint>
+	<bitset>
+	<fstream>
+	<cctype>
+
+1764972976 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador\files\cpu.h
+	"barramento.h"
+	<array>
+	<vector>
+	<iostream>
+	<cstdint>
+	<stdint.h>
+	<string>
+
+1764973861 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador\files\ram.h
+	<iostream>
+	<cstdint>
+	<string>
+	<vector>
+
+1764657125 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador\files\barramento.h
+	"ram.h"
+	<utility>
+	<array>
+	<vector>
+	<iostream>
+	<cstdint>
+	<stdint.h>
+	<string>
+	<unordered_map>
+
+1764973204 source:c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\main.cpp
+	<stdio.h>
+	<iostream>
+	"cpu.h"
+	"ram.h"
+	"barramento.h"
+	<stdint.h>
+	<iostream>
+	<iomanip>
+	<cstdint>
+	<bitset>
+	<fstream>
+	<cctype>
+
+1764972976 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\cpu.h
+	"barramento.h"
+	<array>
+	<vector>
+	<iostream>
+	<cstdint>
+	<stdint.h>
+	<string>
+
+1764657125 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\barramento.h
+	"ram.h"
+	<utility>
+	<array>
+	<vector>
+	<iostream>
+	<cstdint>
+	<stdint.h>
+	<string>
+	<unordered_map>
+
+1764973861 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\ram.h
+	<iostream>
+	<cstdint>
+	<string>
+	<vector>
+
