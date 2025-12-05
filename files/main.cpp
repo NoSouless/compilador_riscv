@@ -11,21 +11,20 @@
 #include <fstream>
 #include <cctype>
 
-
 //https://eseo-tech.github.io/emulsiV/
 
 int main() {
-    CPU minhaCPU;
-    RAM minhaRAM;
-    Barramento meuBarramento;
+    CPU minhaCPU; // cria uma instância da CPU
+    RAM minhaRAM; // cria uma instância da RAM
+    Barramento meuBarramento; // cria uma instância do Barramento
 
-    minhaCPU.set_barramento(&meuBarramento);
-    meuBarramento.set_cpu(&minhaCPU);
-    meuBarramento.set_ram(&minhaRAM);
+    minhaCPU.set_barramento(&meuBarramento); // conecta o barramento à CPU
+    meuBarramento.set_cpu(&minhaCPU); // conecta a CPU ao barramento
+    meuBarramento.set_ram(&minhaRAM); // conecta a RAM ao barramento
 
-    uint32_t endereco_byte = 0u;
-    const uint32_t RAM_SIZE_BYTES = RAM::BACKING_SIZE;
-    int opcao;
+    uint32_t endereco_byte = 0u; // endereço inicial para armazenar instruções na RAM
+    const uint32_t RAM_SIZE_BYTES = RAM::BACKING_SIZE; // tamanho total da RAM em bytes
+    int opcao; // opção do usuário para inserir instruções
     std::cout << "Escolha uma opcao para inserir as instrucoes na RAM:" << std::endl;
     std::cout << "1 - Inserir manualmente" << std::endl;
     std::cout << "2 - Carregar de arquivo txt" << std::endl;
@@ -46,11 +45,11 @@ int main() {
                 std::cerr << "Erro: RAM cheia. Nao e possivel armazenar mais instrucoes." << std::endl;
                 break;
             }
-            minhaRAM.set_endereco_por_byte(endereco_byte, instrucao);
-            endereco_byte += 4u;
+            minhaRAM.set_endereco_por_byte(endereco_byte, instrucao); // armazena a instrução na RAM
+            endereco_byte += 4u; // avança para o próximo endereço (4 bytes por instrução)
         } while (true);
     } else if (opcao == 2) {
-        std::string nome_arquivo;      
+        std::string nome_arquivo;     
         std::cout << "Digite o nome do arquivo txt (com extensao) na pasta 'commands': ";   
         std::cin >> nome_arquivo;
         std::ifstream arquivo("commands/" + nome_arquivo);
@@ -65,9 +64,9 @@ int main() {
                 break;
             }
             try {
-                uint32_t instrucao = std::stoul(linha, nullptr, 16);
-                minhaRAM.set_endereco_por_byte(endereco_byte, instrucao);
-                endereco_byte += 4u;
+                uint32_t instrucao = std::stoul(linha, nullptr, 16); // converte a linha de string para uint32_t em hexadecimal
+                minhaRAM.set_endereco_por_byte(endereco_byte, instrucao); // armazena a instrução na RAM
+                endereco_byte += 4u; // avança para o próximo endereço (4 bytes por instrução)
             } catch (const std::invalid_argument& e) {
                 std::cerr << "Linha invalida no arquivo: " << linha << std::endl;
             } catch (const std::out_of_range& e) {
@@ -80,23 +79,23 @@ int main() {
         return 1;
     }
 
-    while (true) {
-        meuBarramento.set_addr(minhaCPU.get_pc());
-        meuBarramento.ler_da_ram();
-        minhaCPU.set_instrucao(meuBarramento.get_data());
-        if(!minhaCPU.decodificar_instrucao()) break;
+    while (true) { // loop principal de execução
+        meuBarramento.set_addr(minhaCPU.get_pc()); // define o endereço no barramento com o PC da CPU
+        meuBarramento.ler_da_ram(); // lê a instrução da RAM através do barramento
+        minhaCPU.set_instrucao(meuBarramento.get_data()); // define a instrução na CPU
+        if(!minhaCPU.decodificar_instrucao()) break; // decodifica e executa a instrução; sai se for instrução de parada
     }
 
     char dump_choice;
     std::cout << std::endl;
+    std::cout << std::endl;
     std::cout << "Deseja fazer dump dos registradores? (s/n): ";
     std::cin >> dump_choice;
-    //Perguntar se quer em hexadecimal ou decimal
     char format_choice;
     std::cout << "Deseja ver os registradores em hexadecimal ou decimal? (h/d): ";
     std::cin >> format_choice;
     if (std::tolower(dump_choice) == 's') {
-        minhaCPU.dump_registradores(format_choice);
+        minhaCPU.dump_registradores(format_choice); // faz dump dos registradores no formato escolhido
     }
 
     char dump_ram_choice;
@@ -104,7 +103,7 @@ int main() {
     std::cout << "Deseja fazer dump da RAM? (s/n): ";
     std::cin >> dump_ram_choice;
     if (std::tolower(dump_ram_choice) == 's') {
-        minhaRAM.dump_ram();
+        minhaRAM.dump_ram(); // faz dump da RAM
     }
 
     return 0;

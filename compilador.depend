@@ -39,7 +39,7 @@
 	<string>
 	<unordered_map>
 
-1764973204 source:c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\main.cpp
+1764976088 source:c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\main.cpp
 	<stdio.h>
 	<iostream>
 	"cpu.h"
@@ -53,7 +53,7 @@
 	<fstream>
 	<cctype>
 
-1764972976 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\cpu.h
+1764976760 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\cpu.h
 	"barramento.h"
 	<array>
 	<vector>
@@ -62,7 +62,7 @@
 	<stdint.h>
 	<string>
 
-1764657125 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\barramento.h
+1764976004 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\barramento.h
 	"ram.h"
 	<utility>
 	<array>
@@ -73,7 +73,7 @@
 	<string>
 	<unordered_map>
 
-1764973861 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\ram.h
+1764976276 c:\users\leoca\desktop\unisantos\6º semestre\organizacao\compilador_riscv\files\ram.h
 	<iostream>
 	<cstdint>
 	<string>
